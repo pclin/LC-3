@@ -20,17 +20,17 @@ BEGIN
 	PROCESS(A, B, Sel)
 	BEGIN
 		CASE Sel IS
-			WHEN "000" =>
+			WHEN "000" =>	-- add
 				Ans <= "0000" & (A + B);
-			WHEN "001" =>
+			WHEN "001" =>	-- subtract
 				Ans <= "0000" & (A + (not B) + 1);
-			WHEN "010" =>
+			WHEN "010" =>	-- AND
 				Ans <= "0000" & (A and B);
-			WHEN "011" =>
+			WHEN "011" =>	-- OR
 				Ans <= "0000" & (A or B);
-			WHEN "100" =>
+			WHEN "100" =>	-- mltiply
 				Ans <= A * B;
-			WHEN OTHERS =>	 --������0
+			WHEN OTHERS =>	-- clear
 				Ans <= (OTHERS => '0');
 			END CASE;
 	END PROCESS;
